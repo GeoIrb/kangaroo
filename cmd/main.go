@@ -31,20 +31,20 @@ func main() {
 
 	runtime := func(input string) {
 		defer fmt.Printf("Input:\t")
-		
-		strs := strings.Split(input, " ")
-		if len(strs) != 4 {
+
+		params := strings.Split(input, " ")
+		if len(params) != 4 {
 			level.Error(logger).Log("err", "few parameters")
 			return
 		}
 
-		x, err := strconv.Atoi(strs[0])
+		x, err := strconv.Atoi(params[0])
 		if err != nil {
 			level.Error(logger).Log("msg", "convert parameter", "parameter number", 0, "err", err)
 			return
 		}
 
-		v, err := strconv.Atoi(strs[1])
+		v, err := strconv.Atoi(params[1])
 		if err != nil {
 			level.Error(logger).Log("msg", "convert parameter", "parameter number", 1, "err", err)
 			return
@@ -52,13 +52,13 @@ func main() {
 
 		first := fabric(x, v)
 
-		x, err = strconv.Atoi(strs[2])
+		x, err = strconv.Atoi(params[2])
 		if err != nil {
 			level.Error(logger).Log("msg", "convert parameter", "parameter number", 2, "err", err)
 			return
 		}
 
-		v, err = strconv.Atoi(strs[3])
+		v, err = strconv.Atoi(params[3])
 		if err != nil {
 			level.Error(logger).Log("msg", "convert parameter", "parameter number", 3, "err", err)
 			return
